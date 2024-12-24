@@ -46,7 +46,7 @@ fun ProfileScreen(refreshKey: Int, navController: NavController) {
         topBar = {
             TopAppBar(
                 colors = topAppBarColors(
-                    containerColor = Color(0xFF8B6D4B),
+                    containerColor = Color(0xFFF2D680),
                     titleContentColor = Color(0xFF212529),
                 ),
                 navigationIcon = {
@@ -80,7 +80,7 @@ fun ProfileScreen(refreshKey: Int, navController: NavController) {
                 is MyUiState.Success -> OrderList(
                     orders = (state as MyUiState.Success<List<Order>>).data ?: emptyList()
                 )
-                is MyUiState.Empty -> Text("No news available")
+                is MyUiState.Empty -> Text("Fait ta première commande !!! ")
                 is MyUiState.Idle -> Unit
             }
 //            OrderList(orders = orderList)

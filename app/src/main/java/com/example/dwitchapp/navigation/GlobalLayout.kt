@@ -41,7 +41,7 @@ fun GlobalLayout() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFB85353))
+                .background(Color(0xFFF3FFCF))
         ) {
             NavHost(navController = navController, startDestination = ProfileScreenRoute) {
                 composable<ProfileScreenRoute> {

@@ -3,13 +3,16 @@ package com.example.dwitchapp.service
 
 import com.example.dwitchapp.data.dto.NewsResponse
 import com.example.dwitchapp.data.dto.OrdersResponse
+import com.example.dwitchapp.data.dto.User
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
 import java.util.Date
 import retrofit2.http.Header
+import retrofit2.http.POST
 
 
 interface DwitchService {
@@ -21,7 +24,22 @@ interface DwitchService {
     suspend fun getNews(
         @Header("Authorization") token: String
     ): NewsResponse
+    @POST("auth/local")
+    suspend fun login(@Body request: LoginRequest): LoginResponse
+        //GET /api/user?filters[username][$eq]=John
 }
+
+data class LoginRequest(
+    val identifier: String,
+    val password: String
+)
+
+data class LoginResponse(
+    val jwt: String,
+    val user: User
+)
+
+
 
 object DwitchServiceFactory {
     val moshi = Moshi.Builder()

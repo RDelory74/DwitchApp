@@ -48,7 +48,7 @@ fun NewsScreen(refreshKey: Int, navController: NavController) {
         topBar = {
             TopAppBar(
                 colors = topAppBarColors(
-                    containerColor = Color(0xFF8B6D4B),
+                    containerColor = Color(0xFFF2D680),
                     titleContentColor = Color(0xFF212529),
                 ),
                 navigationIcon = {
